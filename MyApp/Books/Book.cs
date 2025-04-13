@@ -8,9 +8,11 @@ namespace MyApp.Books
         public int Id { get; set; }
         public int Year { get; set; }
         public string Title { get; set; }
+        public string ISBN { get; set; }    
         public string Handle { get; set; }
         public string Publisher { get; set; }
         public int Pages { get; set; }
+        public List<string> Notes { get; set; }
         public List<Villain> Villains { get; set; }
 
         public double? Rating { get; set; }
