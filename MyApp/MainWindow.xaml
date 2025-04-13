@@ -1,0 +1,52 @@
+﻿<Window x:Class="BookListApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Stephen King Books" Height="450" Width="1100">
+    <Grid>
+        <ListView x:Name="BooksListView" Margin="10" MouseDoubleClick="BooksListView_MouseDoubleClick" SelectionChanged="BooksListView_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Tytuł" DisplayMemberBinding="{Binding Title}" Width="200"/>
+                    <GridViewColumn Header="Rok" DisplayMemberBinding="{Binding Year}" Width="80"/>
+                    <GridViewColumn Header="Wydawnictwo" DisplayMemberBinding="{Binding Publisher}" Width="150"/>
+                    <GridViewColumn Header="Strony" DisplayMemberBinding="{Binding Pages}" Width="80"/>
+                    <GridViewColumn Header="Ocena" DisplayMemberBinding="{Binding Rating}" Width="80"/>
+
+                    <!-- Ulubiona -->
+                    <GridViewColumn Header="Ulubiona" Width="80">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding IsFavorite, Mode=TwoWay}" HorizontalAlignment="Center"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <!-- Do przeczytania -->
+                    <GridViewColumn Header="Do przeczytania" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding IsToRead, Mode=TwoWay}" HorizontalAlignment="Center"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <!-- Przeczytana -->
+                    <GridViewColumn Header="Przeczytana" Width="80">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding IsRead, Mode=TwoWay}" HorizontalAlignment="Center"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <!-- Szczegóły -->
+                    <GridViewColumn Header="Szczegóły">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <!-- Przycisk do wyświetlenia szczegółów książki -->
+                                <Button Content="Szczegóły" Click="DetailsButton_Click" Tag="{Binding}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>
