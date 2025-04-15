@@ -1,7 +1,8 @@
 ﻿<Window x:Class="BookListApp.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Stephen King Books" Height="450" Width="1100">
+        Title="Stephen King Books" Height="450" Width="1100"
+        Icon="Resources/ikona.ico">
     <Grid>
         <ListView x:Name="BooksListView" Margin="10" MouseDoubleClick="BooksListView_MouseDoubleClick" SelectionChanged="BooksListView_SelectionChanged">
             <ListView.View>
