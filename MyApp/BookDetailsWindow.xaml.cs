@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using MyApp.Books;
 
 namespace MyApp
@@ -58,6 +59,13 @@ namespace MyApp
         private void NotesList_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
 
+        }
+        private void VillainsDetails(object sender, RoutedEventArgs e)
+        {
+                // Tworzymy nowe okno ze szczegółami książki
+                var detailsWindow = new VillainDetailsWindow();
+                detailsWindow.Show(); // lub .ShowDialog() jeśli chcesz, żeby było modalne
+           
         }
     }
 }
