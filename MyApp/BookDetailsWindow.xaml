@@ -29,14 +29,14 @@
         <TextBlock x:Name="ISBNTextBlock" FontSize="16" Margin="0,0,0,15" Grid.Row="5"/>
 
         <!-- Notatki -->
-        <TextBlock x:Name="NotesLabel" FontSize="16" Text="Notatki:" Grid.Row="6"/>
+        <TextBlock x:Name="NotesLabel" FontSize="16" Text="Informacje dodatkowe:" Grid.Row="6"/>
         <ListView x:Name="NotesList"
           Grid.Row="7"
           ItemsSource="{Binding Notes}"
           ScrollViewer.VerticalScrollBarVisibility="Auto"
           MaxHeight="150"/>
 
-        <TextBlock x:Name="NotesEmptyMessage" Text="Brak notatek" Foreground="Gray"
+        <TextBlock x:Name="NotesEmptyMessage" Text="Brak informacji dodatkowych" Foreground="Gray"
                        FontStyle="Italic" Visibility="Collapsed" Margin="10,0,10,10" Grid.Row="8" />
 
         <!-- Złoczyńcy -->
