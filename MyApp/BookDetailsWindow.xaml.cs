@@ -39,7 +39,7 @@ namespace MyApp
             {
                 VillainsList.ItemsSource = selectedBook.Villains
                     .Where(v => !string.IsNullOrWhiteSpace(v.Name))
-                    .Select(v => v.Name);
+                    .ToList();
                 VillainsList.Visibility = Visibility.Visible;
                 VillainEmptyMessage.Visibility = Visibility.Collapsed;
             }

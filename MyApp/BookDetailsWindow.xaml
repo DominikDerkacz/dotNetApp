@@ -26,8 +26,18 @@
 
             <TextBlock x:Name="VillainsLabel" FontSize="16" Text="Złoczyńcy:" />
             <ListView x:Name="VillainsList" Margin="0,5,0,15"
-                      MaxHeight="200"
-                      ItemsSource="{Binding Villains}" />
+          MaxHeight="200"
+          ItemsSource="{Binding Villains}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0,2">
+                            <TextBlock Text="{Binding Name}" FontSize="14" VerticalAlignment="Center" Width="400"/>
+                            <Button Content="Szczegóły" Width="80" Margin="10,0,0,0" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
             <TextBlock x:Name="VillainEmptyMessage"
            Text="Brak złoczyńców"
            Foreground="Gray"
