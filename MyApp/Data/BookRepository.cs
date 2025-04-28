@@ -9,7 +9,7 @@ namespace MyApp.Data
 {
     public class BookRepository
     {
-        // Pobiera dane o wszystkich zapisanych książkach
+   
         public async Task<List<BookData>> GetAllBookDataAsync()
         {
             using (var context = new BookDbContext())
@@ -18,7 +18,7 @@ namespace MyApp.Data
             }
         }
 
-        // Pobiera dane o konkretnej książce po ID
+  
         public async Task<BookData> GetBookDataByIdAsync(int bookId)
         {
             using (var context = new BookDbContext())
@@ -27,7 +27,7 @@ namespace MyApp.Data
             }
         }
 
-        // Zapisuje lub aktualizuje dane książki
+      
         public async Task SaveBookDataAsync(BookData bookData)
         {
             using (var context = new BookDbContext())
@@ -36,7 +36,7 @@ namespace MyApp.Data
 
                 if (existingBook != null)
                 {
-                    // Aktualizuj istniejący wpis
+                 
                     existingBook.IsRead = bookData.IsRead;
                     existingBook.IsToRead = bookData.IsToRead;
                     existingBook.IsFavorite = bookData.IsFavorite;
@@ -45,7 +45,7 @@ namespace MyApp.Data
                 }
                 else
                 {
-                    // Dodaj nowy wpis
+                   
                     bookData.LastModified = DateTime.Now;
                     context.Books.Add(bookData);
                 }

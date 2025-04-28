@@ -14,7 +14,6 @@ namespace MyApp.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            // Plik bazy danych będzie w folderze z aplikacją
             string dbPath = Path.Combine(Directory.GetCurrentDirectory(), "books.db");
             optionsBuilder.UseSqlite($"Data Source={dbPath}");
         }
@@ -22,8 +21,6 @@ namespace MyApp.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            // Ustaw Id jako klucz główny
             modelBuilder.Entity<BookData>()
                 .HasKey(b => b.Id);
         }

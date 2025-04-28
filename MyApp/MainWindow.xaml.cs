@@ -28,14 +28,14 @@ using MyApp.Data;
         {
             try
             {
-                // 1. Pobierz zapisane dane z bazy danych
+                
                 var savedBookData = await _bookRepository.GetAllBookDataAsync();
                 _bookDataCache = savedBookData.ToDictionary(b => b.Id);
 
-                // 2. Pobierz książki z API
+                
                 var books = await _apiService.GetBooksAsync();
 
-                // 3. Połącz dane - zastosuj zapisane flagi i oceny do książek z API
+               
                 foreach (var book in books)
                 {
                     if (_bookDataCache.TryGetValue(book.Id, out var data))
@@ -43,16 +43,16 @@ using MyApp.Data;
                         book.IsRead = data.IsRead;
                         book.IsToRead = data.IsToRead;
                         book.IsFavorite = data.IsFavorite;
-                        book.Rating = data.Rating;  // Dodaj to pole
+                        book.Rating = data.Rating;  
                     }
                     else
                     {
-                        // Nie generuj już losowych ocen
+                      
                         book.Rating = null;
                     }       
                 }
 
-                // 4. Wyświetl książki
+               
                 BooksListView.ItemsSource = books;
             }
             catch (Exception ex)
@@ -62,11 +62,10 @@ using MyApp.Data;
         }
         private void AttachPropertyChangedHandlers(List<Book> books)
         {
-            // Dodaj dla każdej książki obsługę zmiany właściwości
+           
             foreach (var book in books)
             {
-                // Tutaj można by dodać obsługę PropertyChanged jeśli Book implementuje INotifyPropertyChanged
-                // Na razie wykorzystamy zdarzenia checkboxów bezpośrednio
+                
             }
         }
 
@@ -75,7 +74,7 @@ using MyApp.Data;
                 if (BooksListView.SelectedItem is Book selectedBook)
                 {
                     MessageBox.Show($"Szczegóły książki: {selectedBook.Title}");
-                    // Tutaj możesz otworzyć nowe okno ze szczegółami
+                    
                 }
             }
         private async void FavoriteCheckBox_Checked(object sender, RoutedEventArgs e)
@@ -112,7 +111,7 @@ using MyApp.Data;
         {
             if (sender is CheckBox checkBox && checkBox.DataContext is Book book)
             {
-                // Aktualizuj model książki
+               
                 switch (propertyName)
                 {
                     case nameof(Book.IsFavorite):
@@ -126,7 +125,7 @@ using MyApp.Data;
                         break;
                 }
 
-                // Zapisz do bazy danych
+               
                 await SaveBookStatusAsync(book);
             }
         }
@@ -160,9 +159,9 @@ using MyApp.Data;
             {
                 if (sender is Button button && button.Tag is Book selectedBook)
                 {
-                    // Tworzymy nowe okno ze szczegółami książki
+                    
                     var detailsWindow = new BookDetailsWindow(selectedBook);
-                    detailsWindow.Show(); // lub .ShowDialog() jeśli chcesz, żeby było modalne
+                    detailsWindow.Show(); 
                 }
             }
         }

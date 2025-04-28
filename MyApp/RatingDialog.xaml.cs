@@ -13,19 +13,19 @@ namespace MyApp
         {
             InitializeComponent();
 
-            // Jeśli książka ma już ocenę, ustaw ją jako początkową wartość
+           
             if (currentRating.HasValue)
             {
                 RatingSlider.Value = currentRating.Value;
             }
 
-            // Aktualizuj wyświetlaną wartość, gdy slider się zmienia
+           
             RatingSlider.ValueChanged += (sender, e) =>
             {
                 RatingValueText.Text = RatingSlider.Value.ToString("0");
             };
 
-            // Ustaw początkową wartość
+            
             RatingValueText.Text = RatingSlider.Value.ToString("0");
         }
 

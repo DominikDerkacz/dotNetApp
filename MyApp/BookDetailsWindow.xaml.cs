@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using MyApp.Data;  // Dodaj ten using
+using MyApp.Data; 
 using MyApp.Books;
 
 namespace MyApp
@@ -11,15 +11,15 @@ namespace MyApp
     public partial class BookDetailsWindow : Window
     {
         private Book _currentBook;
-        private BookRepository _bookRepository;  // Dodaj to pole
+        private BookRepository _bookRepository;  
 
         public BookDetailsWindow(Book selectedBook)
         {
             InitializeComponent();
             _currentBook = selectedBook;
-            _bookRepository = new BookRepository();  // Inicjalizuj repozytorium
+            _bookRepository = new BookRepository();  
 
-            // Wypełnianie pól szczegółów książki
+            
             TitleTextBlock.Text = selectedBook.Title;
             UpdateRatingDisplay();
             PublisherTextBlock.Text = $"Wydawnictwo: {selectedBook.Publisher}";
@@ -27,7 +27,7 @@ namespace MyApp
             PagesTextBlock.Text = $"Liczba stron: {selectedBook.Pages}";
             ISBNTextBlock.Text = $"ISBN: {selectedBook.ISBN}";
 
-            // Notatki
+          
             if (selectedBook.Notes != null && selectedBook.Notes.Any(note => !string.IsNullOrWhiteSpace(note)))
             {
                 NotesList.ItemsSource = selectedBook.Notes.Where(note => !string.IsNullOrWhiteSpace(note));
@@ -40,7 +40,7 @@ namespace MyApp
                 NotesEmptyMessage.Visibility = Visibility.Visible;
             }
 
-            // Złoczyńcy
+           
             if (selectedBook.Villains != null && selectedBook.Villains.Any(v => !string.IsNullOrWhiteSpace(v.Name)))
             {
                 VillainsList.ItemsSource = selectedBook.Villains
@@ -55,7 +55,7 @@ namespace MyApp
                 VillainEmptyMessage.Visibility = Visibility.Visible;
             }
 
-            // Aktualizuj widoczność przycisków oceny
+            
             UpdateRatingButtonsVisibility();
         }
 
@@ -73,9 +73,9 @@ namespace MyApp
 
         private void UpdateRatingButtonsVisibility()
         {
-            // Pokaż przycisk usuwania tylko jeśli książka ma ocenę
+            
             RemoveRatingButton.Visibility = _currentBook.Rating.HasValue ? Visibility.Visible : Visibility.Collapsed;
-            // Zmień tekst przycisku edycji w zależności od tego, czy książka ma już ocenę
+            
             EditRatingButton.Content = _currentBook.Rating.HasValue ? "Edytuj ocenę" : "Dodaj ocenę";
         }
 
@@ -84,12 +84,7 @@ namespace MyApp
             this.Close();
         }
 
-        private void VillainsDetails(object sender, RoutedEventArgs e)
-        {
-            // Tworzymy nowe okno ze szczegółami złoczyńcy
-            var detailsWindow = new VillainDetailsWindow();
-            detailsWindow.Show();
-        }
+
 
         private async void EditRating_Click(object sender, RoutedEventArgs e)
         {
@@ -98,14 +93,14 @@ namespace MyApp
 
             if (ratingDialog.ShowDialog() == true)
             {
-                // Aktualizuj model książki
+                
                 _currentBook.Rating = ratingDialog.Rating;
 
-                // Aktualizuj UI
+                
                 UpdateRatingDisplay();
                 UpdateRatingButtonsVisibility();
 
-                // Zapisz do bazy danych
+              
                 await SaveRatingToDatabase();
             }
         }
@@ -115,14 +110,14 @@ namespace MyApp
             if (MessageBox.Show("Czy na pewno chcesz usunąć ocenę?", "Potwierdzenie",
                                 MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                // Usuń ocenę
+                
                 _currentBook.Rating = null;
 
-                // Aktualizuj UI
+                
                 UpdateRatingDisplay();
                 UpdateRatingButtonsVisibility();
 
-                // Zapisz do bazy danych
+                
                 await SaveRatingToDatabase();
             }
         }

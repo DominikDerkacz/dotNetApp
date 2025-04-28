@@ -11,7 +11,6 @@ namespace MyApp
         {
             base.OnStartup(e);
 
-            // Inicjalizacja bazy danych
             InitializeDatabase();
         }
 
