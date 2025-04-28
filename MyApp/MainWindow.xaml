@@ -17,7 +17,10 @@
                     <GridViewColumn Header="Ulubiona" Width="80">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <CheckBox IsChecked="{Binding IsFavorite, Mode=TwoWay}" HorizontalAlignment="Center"/>
+                                <CheckBox IsChecked="{Binding IsFavorite, Mode=TwoWay}" 
+                      HorizontalAlignment="Center"
+                      Checked="FavoriteCheckBox_Checked" 
+                      Unchecked="FavoriteCheckBox_Unchecked"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -25,7 +28,10 @@
                     <GridViewColumn Header="Do przeczytania" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <CheckBox IsChecked="{Binding IsToRead, Mode=TwoWay}" HorizontalAlignment="Center"/>
+                                <CheckBox IsChecked="{Binding IsToRead, Mode=TwoWay}" 
+                      HorizontalAlignment="Center"
+                      Checked="ToReadCheckBox_Checked" 
+                      Unchecked="ToReadCheckBox_Unchecked"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -33,7 +39,10 @@
                     <GridViewColumn Header="Przeczytana" Width="80">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <CheckBox IsChecked="{Binding IsRead, Mode=TwoWay}" HorizontalAlignment="Center"/>
+                                <CheckBox IsChecked="{Binding IsRead, Mode=TwoWay}" 
+                      HorizontalAlignment="Center"
+                      Checked="ReadCheckBox_Checked" 
+                      Unchecked="ReadCheckBox_Unchecked"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
