@@ -19,7 +19,6 @@ namespace MyApp
         {
             using (var context = new BookDbContext())
             {
-                // Upewnia się, że baza danych jest utworzona
                 context.Database.EnsureCreated();
             }
         }

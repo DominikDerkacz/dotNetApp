@@ -21,7 +21,7 @@ using MyApp.Data;
                 _apiService = new ApiService();
                 _bookRepository = new BookRepository();
                 _bookDataCache = new Dictionary<int, BookData>();
-            LoadBooksAsync();
+                LoadBooksAsync();
             }
 
         private async Task LoadBooksAsync()
@@ -35,7 +35,7 @@ using MyApp.Data;
                 // 2. Pobierz książki z API
                 var books = await _apiService.GetBooksAsync();
 
-                // 3. Połącz dane - zastosuj zapisane flagi do książek z API
+                // 3. Połącz dane - zastosuj zapisane flagi i oceny do książek z API
                 foreach (var book in books)
                 {
                     if (_bookDataCache.TryGetValue(book.Id, out var data))
@@ -43,17 +43,17 @@ using MyApp.Data;
                         book.IsRead = data.IsRead;
                         book.IsToRead = data.IsToRead;
                         book.IsFavorite = data.IsFavorite;
+                        book.Rating = data.Rating;  // Dodaj to pole
                     }
-
-                    // Dodaj losowe oceny
-                    book.Rating = new Random().Next(1, 10);
+                    else
+                    {
+                        // Nie generuj już losowych ocen
+                        book.Rating = null;
+                    }       
                 }
 
                 // 4. Wyświetl książki
                 BooksListView.ItemsSource = books;
-
-                // 5. Dodaj obsługę zmian właściwości
-                AttachPropertyChangedHandlers(books);
             }
             catch (Exception ex)
             {
@@ -140,7 +140,8 @@ using MyApp.Data;
                     Id = book.Id,
                     IsRead = book.IsRead,
                     IsToRead = book.IsToRead,
-                    IsFavorite = book.IsFavorite
+                    IsFavorite = book.IsFavorite,
+                    Rating = book.Rating
                 };
 
                 await _bookRepository.SaveBookDataAsync(bookData);

@@ -40,6 +40,7 @@ namespace MyApp.Data
                     existingBook.IsRead = bookData.IsRead;
                     existingBook.IsToRead = bookData.IsToRead;
                     existingBook.IsFavorite = bookData.IsFavorite;
+                    existingBook.Rating = bookData.Rating;
                     existingBook.LastModified = DateTime.Now;
                 }
                 else
