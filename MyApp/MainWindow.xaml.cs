@@ -19,10 +19,7 @@ namespace BookListApp
         private ApiService _apiService; ///<summary>Serwis do pobierania danych książek z zewnętrznego API.</summary>
         private BookRepository _bookRepository; ///<summary>Repozytorium odpowiedzialne za przechowywanie danych książek lokalnie.</summary>
         private Dictionary<int, BookData> _bookDataCache; ///<summary>Cache do przechowywania statusu książek (IsRead, IsFavorite itp.).</summary>
-
-        /// <summary>
-        /// Inicjalizuje nową instancję klasy MainWindow.
-        /// </summary>
+        private List<Book> _books; ///<summary>Lista książek, która jest wyświetlana w UI.</summary>
         public MainWindow()
         {
             InitializeComponent(); ///<summary>Inicjalizuje komponenty WPF do interfejsu użytkownika.</summary>
@@ -64,8 +61,9 @@ namespace BookListApp
                     }
                 }
 
-                // Przypisanie książek do widoku
-                BooksListView.ItemsSource = books;
+                _books = books; // Przypisanie książek do listy _books
+                
+                BooksListView.ItemsSource = books; // Przypisanie książek do widoku
             }
             catch (Exception ex)
             {
@@ -202,6 +200,17 @@ namespace BookListApp
                 var detailsWindow = new BookDetailsWindow(selectedBook);
                 detailsWindow.Show(); ///<summary>Wyświetla okno szczegółów książki.</summary>
             }
+        }
+
+        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var searchText = SearchTextBox.Text.ToLower();
+
+            // Filtrujemy książki po tytule
+            var filteredBooks = _books.Where(book => book.Title.ToLower().Contains(searchText)).ToList();
+
+            // Przypisujemy przefiltrowaną listę do ListView
+            BooksListView.ItemsSource = filteredBooks;
         }
     }
 }
