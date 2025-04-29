@@ -7,6 +7,8 @@ using System.Windows.Controls;
 using MyApp;
 using MyApp.Services;
 using MyApp.Data;
+using System.ComponentModel;
+using System.Windows.Data;
 
 namespace BookListApp
 {
@@ -20,6 +22,8 @@ namespace BookListApp
         private BookRepository _bookRepository; ///<summary>Repozytorium odpowiedzialne za przechowywanie danych książek lokalnie.</summary>
         private Dictionary<int, BookData> _bookDataCache; ///<summary>Cache do przechowywania statusu książek (IsRead, IsFavorite itp.).</summary>
         private List<Book> _books; ///<summary>Lista książek, która jest wyświetlana w UI.</summary>
+        private GridViewColumnHeader _lastHeaderClicked = null;
+        private ListSortDirection _lastDirection = ListSortDirection.Ascending;
         public MainWindow()
         {
             InitializeComponent(); ///<summary>Inicjalizuje komponenty WPF do interfejsu użytkownika.</summary>
@@ -212,5 +216,61 @@ namespace BookListApp
             // Przypisujemy przefiltrowaną listę do ListView
             BooksListView.ItemsSource = filteredBooks;
         }
+        private void Sort(string sortBy, ListSortDirection direction)
+        {
+            ICollectionView dataView = CollectionViewSource.GetDefaultView(BooksListView.ItemsSource);
+
+            dataView.SortDescriptions.Clear();
+            dataView.SortDescriptions.Add(new SortDescription(sortBy, direction));
+            dataView.Refresh();
+        }
+        private void GridViewColumnHeader_Click(object sender, RoutedEventArgs e)
+        {
+            if (e.OriginalSource is GridViewColumnHeader headerClicked)
+            {
+                string sortBy = null;
+
+                // Obsługuje klasyczne kolumny (np. Tytuł, Rok)
+                if (headerClicked.Column?.DisplayMemberBinding is Binding binding)
+                {
+                    sortBy = binding.Path.Path;
+                }
+                // Obsługuje kolumny bez DisplayMemberBinding (np. z CheckBox)
+                else if (headerClicked.Tag is string tag)
+                {
+                    sortBy = tag;
+                }
+
+                if (!string.IsNullOrEmpty(sortBy))
+                {
+                    ListSortDirection direction;
+
+                    // Sprawdzamy, czy kliknięto w kolumnę z CheckBoxami
+                    bool isCheckboxColumn = sortBy == "IsFavorite" || sortBy == "IsToRead" || sortBy == "IsRead";
+
+                    // Dla kolumn z CheckBoxami sortowanie domyślnie malejące
+                    if (headerClicked == _lastHeaderClicked)
+                    {
+                        direction = _lastDirection == ListSortDirection.Ascending
+                            ? ListSortDirection.Descending
+                            : ListSortDirection.Ascending;
+                    }
+                    else
+                    {
+                        // Ustawiamy domyślnie malejąco dla checkboxów, rosnąco dla innych kolumn
+                        direction = isCheckboxColumn ? ListSortDirection.Descending : ListSortDirection.Ascending;
+                    }
+
+                    Sort(sortBy, direction);
+
+                    _lastHeaderClicked = headerClicked;
+                    _lastDirection = direction;
+                }
+            }
+        }
+
+
+
+
     }
 }

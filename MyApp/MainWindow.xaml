@@ -4,53 +4,114 @@
         Title="Stephen King Books" Height="450" Width="1100"
         Icon="Resources/ikona.ico">
     <Grid>
+
+        <!-- Opis wyszukiwania -->
+        <TextBlock Text="🔍 Wpisz tytuł książki  :" 
+               Margin="10,0,0,0" 
+               HorizontalAlignment="Left" 
+               VerticalAlignment="Top" 
+               FontWeight="Bold"
+               FontSize="14"/>
         <!-- Pole wyszukiwania książek -->
-        <TextBox x:Name="SearchTextBox" Width="200" Margin="10" TextChanged="SearchTextBox_TextChanged" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <TextBox x:Name="SearchTextBox" Width="200" Margin="10,25,0,0" 
+             TextChanged="SearchTextBox_TextChanged" 
+             HorizontalAlignment="Left" 
+             VerticalAlignment="Top" />
 
         <ListView x:Name="BooksListView" Margin="10,50,10,10" MouseDoubleClick="BooksListView_MouseDoubleClick" SelectionChanged="BooksListView_SelectionChanged">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Tytuł" DisplayMemberBinding="{Binding Title}" Width="200"/>
-                    <GridViewColumn Header="Rok" DisplayMemberBinding="{Binding Year}" Width="80"/>
-                    <GridViewColumn Header="Wydawnictwo" DisplayMemberBinding="{Binding Publisher}" Width="150"/>
-                    <GridViewColumn Header="Strony" DisplayMemberBinding="{Binding Pages}" Width="80"/>
-                    <GridViewColumn Header="Ocena" DisplayMemberBinding="{Binding Rating}" Width="80"/>
+
+                    <!-- Tytuł -->
+                    <GridViewColumn Header="Tytuł" DisplayMemberBinding="{Binding Title}" Width="200">
+                        <GridViewColumn.HeaderContainerStyle>
+                            <Style TargetType="GridViewColumnHeader">
+                                <EventSetter Event="Click" Handler="GridViewColumnHeader_Click"/>
+                            </Style>
+                        </GridViewColumn.HeaderContainerStyle>
+                    </GridViewColumn>
+
+                    <!-- Rok -->
+                    <GridViewColumn Header="Rok" DisplayMemberBinding="{Binding Year}" Width="80">
+                        <GridViewColumn.HeaderContainerStyle>
+                            <Style TargetType="GridViewColumnHeader">
+                                <EventSetter Event="Click" Handler="GridViewColumnHeader_Click"/>
+                            </Style>
+                        </GridViewColumn.HeaderContainerStyle>
+                    </GridViewColumn>
+
+                    <!-- Wydawnictwo -->
+                    <GridViewColumn Header="Wydawnictwo" DisplayMemberBinding="{Binding Publisher}" Width="150">
+                        <GridViewColumn.HeaderContainerStyle>
+                            <Style TargetType="GridViewColumnHeader">
+                                <EventSetter Event="Click" Handler="GridViewColumnHeader_Click"/>
+                            </Style>
+                        </GridViewColumn.HeaderContainerStyle>
+                    </GridViewColumn>
+
+                    <!-- Ilość stron -->
+                    <GridViewColumn Header="Strony" DisplayMemberBinding="{Binding Pages}" Width="80">
+                        <GridViewColumn.HeaderContainerStyle>
+                            <Style TargetType="GridViewColumnHeader">
+                                <EventSetter Event="Click" Handler="GridViewColumnHeader_Click"/>
+                            </Style>
+                        </GridViewColumn.HeaderContainerStyle>
+                    </GridViewColumn>
+                    
+                    <!-- Ocena -->
+                    <GridViewColumn Header="Ocena" DisplayMemberBinding="{Binding Rating}" Width="80">
+                        <GridViewColumn.HeaderContainerStyle>
+                            <Style TargetType="GridViewColumnHeader">
+                                <EventSetter Event="Click" Handler="GridViewColumnHeader_Click"/>
+                            </Style>
+                        </GridViewColumn.HeaderContainerStyle>
+                    </GridViewColumn>
 
                     <!-- Ulubiona -->
-                    <GridViewColumn Header="Ulubiona" Width="80">
+                    <GridViewColumn Width="80">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Content="Ulubiona" Tag="IsFavorite" Click="GridViewColumnHeader_Click"/>
+                        </GridViewColumn.Header>
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <CheckBox IsChecked="{Binding IsFavorite, Mode=TwoWay}" 
-                                          HorizontalAlignment="Center"
-                                          Checked="FavoriteCheckBox_Checked" 
-                                          Unchecked="FavoriteCheckBox_Unchecked"/>
+                      HorizontalAlignment="Center"
+                      Checked="FavoriteCheckBox_Checked" 
+                      Unchecked="FavoriteCheckBox_Unchecked"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
                     <!-- Do przeczytania -->
-                    <GridViewColumn Header="Do przeczytania" Width="100">
+                    <GridViewColumn Width="100">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Content="Do przeczytania" Tag="IsToRead" Click="GridViewColumnHeader_Click"/>
+                        </GridViewColumn.Header>
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <CheckBox IsChecked="{Binding IsToRead, Mode=TwoWay}" 
-                                          HorizontalAlignment="Center"
-                                          Checked="ToReadCheckBox_Checked" 
-                                          Unchecked="ToReadCheckBox_Unchecked"/>
+                      HorizontalAlignment="Center"
+                      Checked="ToReadCheckBox_Checked" 
+                      Unchecked="ToReadCheckBox_Unchecked"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
                     <!-- Przeczytana -->
-                    <GridViewColumn Header="Przeczytana" Width="80">
+                    <GridViewColumn Width="80">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Content="Przeczytana" Tag="IsRead" Click="GridViewColumnHeader_Click"/>
+                        </GridViewColumn.Header>
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <CheckBox IsChecked="{Binding IsRead, Mode=TwoWay}" 
-                                          HorizontalAlignment="Center"
-                                          Checked="ReadCheckBox_Checked" 
-                                          Unchecked="ReadCheckBox_Unchecked"/>
+                      HorizontalAlignment="Center"
+                      Checked="ReadCheckBox_Checked" 
+                      Unchecked="ReadCheckBox_Unchecked"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
+
 
                     <!-- Szczegóły -->
                     <GridViewColumn Header="Szczegóły">
