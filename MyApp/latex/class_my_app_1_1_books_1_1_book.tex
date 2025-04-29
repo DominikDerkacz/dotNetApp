@@ -1,0 +1,267 @@
+\doxysection{My\+App\+::Books\+::Book Class Reference}
+\hypertarget{class_my_app_1_1_books_1_1_book}{}\label{class_my_app_1_1_books_1_1_book}\index{MyApp::Books::Book@{MyApp::Books::Book}}
+
+
+Reprezentuje książkę z jej właściwościami i funkcjonalnością. Klasa implementuje interfejs INotify\+Property\+Changed, co umożliwia powiadamianie o zmianach w jej właściwościach.  
+
+
+Inheritance diagram for My\+App\+::Books\+::Book\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_my_app_1_1_books_1_1_book}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+event Property\+Changed\+Event\+Handler \mbox{\hyperlink{class_my_app_1_1_books_1_1_book_affe7a2c4bb4f369cfc7eeead9863d6ef}{Property\+Changed}}
+\begin{DoxyCompactList}\small\item\em Zdarzenie wywoływane, gdy którakolwiek z właściwości książki ulegnie zmianie. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_my_app_1_1_books_1_1_book_a05ca841d24076bc400c226c850d87c2f}{Id}} \{ get
+\begin{DoxyCompactList}\small\item\em Identyfikator książki. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_my_app_1_1_books_1_1_book_a16dc3974f268d6ff299adce39eed321d}{set}}
+\item 
+int \mbox{\hyperlink{class_my_app_1_1_books_1_1_book_a2c195e0914286de5908d93ecb8ac5998}{Year}} \{ get
+\begin{DoxyCompactList}\small\item\em Rok wydania książki. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_my_app_1_1_books_1_1_book_a6701c693c0d5c0355452e7b089d94643}{Title}} \{ get
+\begin{DoxyCompactList}\small\item\em Tytuł książki. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_my_app_1_1_books_1_1_book_aff30d5a081b4e2f975f51980770cdfcd}{ISBN}} \{ get
+\begin{DoxyCompactList}\small\item\em Numer ISBN książki. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_my_app_1_1_books_1_1_book_a73e781dc76ba3a0bf32a8cd00db98c61}{Handle}} \{ get
+\begin{DoxyCompactList}\small\item\em Uchwyt książki (może służyć do identyfikacji w systemie). \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_my_app_1_1_books_1_1_book_ad8c901647aedc77104811e0336caea90}{Publisher}} \{ get
+\begin{DoxyCompactList}\small\item\em Wydawca książki. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_my_app_1_1_books_1_1_book_ae7fc68a5311038be7f838bbf03d1d4cd}{Pages}} \{ get
+\begin{DoxyCompactList}\small\item\em Liczba stron w książce. \end{DoxyCompactList}\item 
+List$<$ string $>$ \mbox{\hyperlink{class_my_app_1_1_books_1_1_book_a5b3d4b985829a5e143f318db0887406d}{Notes}} \{ get
+\begin{DoxyCompactList}\small\item\em Lista notatek związanych z książką. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{class_my_app_1_1_books_1_1_villain}{Villain}} $>$ \mbox{\hyperlink{class_my_app_1_1_books_1_1_book_a06386cb6c8a64ee7d806551079edf8ad}{Villains}} \{ get
+\begin{DoxyCompactList}\small\item\em Lista złoczyńców występujących w książce. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_my_app_1_1_books_1_1_book_a2b6bf51d338889a370088a3f737bf412}{Rating}}
+\begin{DoxyCompactList}\small\item\em Ocena książki. Może być null, jeśli brak oceny. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_my_app_1_1_books_1_1_book_a0a0dbf1c894094a35a545c709c7961bc}{Is\+Favorite}}
+\begin{DoxyCompactList}\small\item\em Określa, czy książka jest ulubiona. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_my_app_1_1_books_1_1_book_a6aa84397eb7023719bdc1e5cfebd03b3}{Is\+To\+Read}}
+\begin{DoxyCompactList}\small\item\em Określa, czy książka jest do przeczytania. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_my_app_1_1_books_1_1_book_ab32c803aeac433874fe2f4cf5ffc4e45}{Is\+Read}}
+\begin{DoxyCompactList}\small\item\em Określa, czy książka została przeczytana. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_my_app_1_1_books_1_1_book_a011f12986004c90e1a6b4dae2da41c1f}{On\+Property\+Changed}} (\mbox{[}Caller\+Member\+Name\mbox{]} string property\+Name=null)
+\begin{DoxyCompactList}\small\item\em Wywołuje zdarzenie Property\+Changed, aby poinformować o zmianie właściwości. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Reprezentuje książkę z jej właściwościami i funkcjonalnością. Klasa implementuje interfejs INotify\+Property\+Changed, co umożliwia powiadamianie o zmianach w jej właściwościach. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_my_app_1_1_books_1_1_book_a011f12986004c90e1a6b4dae2da41c1f}\label{class_my_app_1_1_books_1_1_book_a011f12986004c90e1a6b4dae2da41c1f} 
+\index{MyApp::Books::Book@{MyApp::Books::Book}!OnPropertyChanged@{OnPropertyChanged}}
+\index{OnPropertyChanged@{OnPropertyChanged}!MyApp::Books::Book@{MyApp::Books::Book}}
+\doxysubsubsection{\texorpdfstring{OnPropertyChanged()}{OnPropertyChanged()}}
+{\footnotesize\ttfamily void My\+App\+::\+Books\+::\+Book\+::\+On\+Property\+Changed (\begin{DoxyParamCaption}\item[{\mbox{[}\+Caller\+Member\+Name\mbox{]} string}]{property\+Name = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Wywołuje zdarzenie Property\+Changed, aby poinformować o zmianie właściwości. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em property\+Name} & Nazwa właściwości, która została zmieniona.\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_my_app_1_1_books_1_1_book_a73e781dc76ba3a0bf32a8cd00db98c61}\label{class_my_app_1_1_books_1_1_book_a73e781dc76ba3a0bf32a8cd00db98c61} 
+\index{MyApp::Books::Book@{MyApp::Books::Book}!Handle@{Handle}}
+\index{Handle@{Handle}!MyApp::Books::Book@{MyApp::Books::Book}}
+\doxysubsubsection{\texorpdfstring{Handle}{Handle}}
+{\footnotesize\ttfamily string My\+App\+::\+Books\+::\+Book\+::\+Handle \{ get}
+
+
+
+Uchwyt książki (może służyć do identyfikacji w systemie). 
+
+\Hypertarget{class_my_app_1_1_books_1_1_book_a05ca841d24076bc400c226c850d87c2f}\label{class_my_app_1_1_books_1_1_book_a05ca841d24076bc400c226c850d87c2f} 
+\index{MyApp::Books::Book@{MyApp::Books::Book}!Id@{Id}}
+\index{Id@{Id}!MyApp::Books::Book@{MyApp::Books::Book}}
+\doxysubsubsection{\texorpdfstring{Id}{Id}}
+{\footnotesize\ttfamily int My\+App\+::\+Books\+::\+Book\+::\+Id \{ get}
+
+
+
+Identyfikator książki. 
+
+\Hypertarget{class_my_app_1_1_books_1_1_book_aff30d5a081b4e2f975f51980770cdfcd}\label{class_my_app_1_1_books_1_1_book_aff30d5a081b4e2f975f51980770cdfcd} 
+\index{MyApp::Books::Book@{MyApp::Books::Book}!ISBN@{ISBN}}
+\index{ISBN@{ISBN}!MyApp::Books::Book@{MyApp::Books::Book}}
+\doxysubsubsection{\texorpdfstring{ISBN}{ISBN}}
+{\footnotesize\ttfamily string My\+App\+::\+Books\+::\+Book\+::\+ISBN \{ get}
+
+
+
+Numer ISBN książki. 
+
+\Hypertarget{class_my_app_1_1_books_1_1_book_a0a0dbf1c894094a35a545c709c7961bc}\label{class_my_app_1_1_books_1_1_book_a0a0dbf1c894094a35a545c709c7961bc} 
+\index{MyApp::Books::Book@{MyApp::Books::Book}!IsFavorite@{IsFavorite}}
+\index{IsFavorite@{IsFavorite}!MyApp::Books::Book@{MyApp::Books::Book}}
+\doxysubsubsection{\texorpdfstring{IsFavorite}{IsFavorite}}
+{\footnotesize\ttfamily bool My\+App\+::\+Books\+::\+Book\+::\+Is\+Favorite}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ get\ =>\ \_isFavorite}
+
+\end{DoxyCode}
+
+
+Określa, czy książka jest ulubiona. 
+
+\Hypertarget{class_my_app_1_1_books_1_1_book_ab32c803aeac433874fe2f4cf5ffc4e45}\label{class_my_app_1_1_books_1_1_book_ab32c803aeac433874fe2f4cf5ffc4e45} 
+\index{MyApp::Books::Book@{MyApp::Books::Book}!IsRead@{IsRead}}
+\index{IsRead@{IsRead}!MyApp::Books::Book@{MyApp::Books::Book}}
+\doxysubsubsection{\texorpdfstring{IsRead}{IsRead}}
+{\footnotesize\ttfamily bool My\+App\+::\+Books\+::\+Book\+::\+Is\+Read}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ get\ =>\ \_isRead}
+
+\end{DoxyCode}
+
+
+Określa, czy książka została przeczytana. 
+
+\Hypertarget{class_my_app_1_1_books_1_1_book_a6aa84397eb7023719bdc1e5cfebd03b3}\label{class_my_app_1_1_books_1_1_book_a6aa84397eb7023719bdc1e5cfebd03b3} 
+\index{MyApp::Books::Book@{MyApp::Books::Book}!IsToRead@{IsToRead}}
+\index{IsToRead@{IsToRead}!MyApp::Books::Book@{MyApp::Books::Book}}
+\doxysubsubsection{\texorpdfstring{IsToRead}{IsToRead}}
+{\footnotesize\ttfamily bool My\+App\+::\+Books\+::\+Book\+::\+Is\+To\+Read}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ get\ =>\ \_isToRead}
+
+\end{DoxyCode}
+
+
+Określa, czy książka jest do przeczytania. 
+
+\Hypertarget{class_my_app_1_1_books_1_1_book_a5b3d4b985829a5e143f318db0887406d}\label{class_my_app_1_1_books_1_1_book_a5b3d4b985829a5e143f318db0887406d} 
+\index{MyApp::Books::Book@{MyApp::Books::Book}!Notes@{Notes}}
+\index{Notes@{Notes}!MyApp::Books::Book@{MyApp::Books::Book}}
+\doxysubsubsection{\texorpdfstring{Notes}{Notes}}
+{\footnotesize\ttfamily List$<$string$>$ My\+App\+::\+Books\+::\+Book\+::\+Notes \{ get}
+
+
+
+Lista notatek związanych z książką. 
+
+\Hypertarget{class_my_app_1_1_books_1_1_book_ae7fc68a5311038be7f838bbf03d1d4cd}\label{class_my_app_1_1_books_1_1_book_ae7fc68a5311038be7f838bbf03d1d4cd} 
+\index{MyApp::Books::Book@{MyApp::Books::Book}!Pages@{Pages}}
+\index{Pages@{Pages}!MyApp::Books::Book@{MyApp::Books::Book}}
+\doxysubsubsection{\texorpdfstring{Pages}{Pages}}
+{\footnotesize\ttfamily int My\+App\+::\+Books\+::\+Book\+::\+Pages \{ get}
+
+
+
+Liczba stron w książce. 
+
+\Hypertarget{class_my_app_1_1_books_1_1_book_affe7a2c4bb4f369cfc7eeead9863d6ef}\label{class_my_app_1_1_books_1_1_book_affe7a2c4bb4f369cfc7eeead9863d6ef} 
+\index{MyApp::Books::Book@{MyApp::Books::Book}!PropertyChanged@{PropertyChanged}}
+\index{PropertyChanged@{PropertyChanged}!MyApp::Books::Book@{MyApp::Books::Book}}
+\doxysubsubsection{\texorpdfstring{PropertyChanged}{PropertyChanged}}
+{\footnotesize\ttfamily event Property\+Changed\+Event\+Handler My\+App\+::\+Books\+::\+Book\+::\+Property\+Changed}
+
+
+
+Zdarzenie wywoływane, gdy którakolwiek z właściwości książki ulegnie zmianie. 
+
+\Hypertarget{class_my_app_1_1_books_1_1_book_ad8c901647aedc77104811e0336caea90}\label{class_my_app_1_1_books_1_1_book_ad8c901647aedc77104811e0336caea90} 
+\index{MyApp::Books::Book@{MyApp::Books::Book}!Publisher@{Publisher}}
+\index{Publisher@{Publisher}!MyApp::Books::Book@{MyApp::Books::Book}}
+\doxysubsubsection{\texorpdfstring{Publisher}{Publisher}}
+{\footnotesize\ttfamily string My\+App\+::\+Books\+::\+Book\+::\+Publisher \{ get}
+
+
+
+Wydawca książki. 
+
+\Hypertarget{class_my_app_1_1_books_1_1_book_a2b6bf51d338889a370088a3f737bf412}\label{class_my_app_1_1_books_1_1_book_a2b6bf51d338889a370088a3f737bf412} 
+\index{MyApp::Books::Book@{MyApp::Books::Book}!Rating@{Rating}}
+\index{Rating@{Rating}!MyApp::Books::Book@{MyApp::Books::Book}}
+\doxysubsubsection{\texorpdfstring{Rating}{Rating}}
+{\footnotesize\ttfamily double My\+App\+::\+Books\+::\+Book\+::\+Rating}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ get\ =>\ \_rating}
+
+\end{DoxyCode}
+
+
+Ocena książki. Może być null, jeśli brak oceny. 
+
+\Hypertarget{class_my_app_1_1_books_1_1_book_a16dc3974f268d6ff299adce39eed321d}\label{class_my_app_1_1_books_1_1_book_a16dc3974f268d6ff299adce39eed321d} 
+\index{MyApp::Books::Book@{MyApp::Books::Book}!set@{set}}
+\index{set@{set}!MyApp::Books::Book@{MyApp::Books::Book}}
+\doxysubsubsection{\texorpdfstring{set}{set}}
+{\footnotesize\ttfamily My\+App\+::\+Books\+::\+Book\+::set}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_rating\ !=\ value)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_rating\ =\ value;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_my_app_1_1_books_1_1_book_a011f12986004c90e1a6b4dae2da41c1f}{OnPropertyChanged}}();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{string}\ Review\ \{\ get;\ \mbox{\hyperlink{class_my_app_1_1_books_1_1_book_a16dc3974f268d6ff299adce39eed321d}{set}};\ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{bool}\ \_isFavorite}
+
+\end{DoxyCode}
+\Hypertarget{class_my_app_1_1_books_1_1_book_a6701c693c0d5c0355452e7b089d94643}\label{class_my_app_1_1_books_1_1_book_a6701c693c0d5c0355452e7b089d94643} 
+\index{MyApp::Books::Book@{MyApp::Books::Book}!Title@{Title}}
+\index{Title@{Title}!MyApp::Books::Book@{MyApp::Books::Book}}
+\doxysubsubsection{\texorpdfstring{Title}{Title}}
+{\footnotesize\ttfamily string My\+App\+::\+Books\+::\+Book\+::\+Title \{ get}
+
+
+
+Tytuł książki. 
+
+\Hypertarget{class_my_app_1_1_books_1_1_book_a06386cb6c8a64ee7d806551079edf8ad}\label{class_my_app_1_1_books_1_1_book_a06386cb6c8a64ee7d806551079edf8ad} 
+\index{MyApp::Books::Book@{MyApp::Books::Book}!Villains@{Villains}}
+\index{Villains@{Villains}!MyApp::Books::Book@{MyApp::Books::Book}}
+\doxysubsubsection{\texorpdfstring{Villains}{Villains}}
+{\footnotesize\ttfamily List$<$\mbox{\hyperlink{class_my_app_1_1_books_1_1_villain}{Villain}}$>$ My\+App\+::\+Books\+::\+Book\+::\+Villains \{ get}
+
+
+
+Lista złoczyńców występujących w książce. 
+
+\Hypertarget{class_my_app_1_1_books_1_1_book_a2c195e0914286de5908d93ecb8ac5998}\label{class_my_app_1_1_books_1_1_book_a2c195e0914286de5908d93ecb8ac5998} 
+\index{MyApp::Books::Book@{MyApp::Books::Book}!Year@{Year}}
+\index{Year@{Year}!MyApp::Books::Book@{MyApp::Books::Book}}
+\doxysubsubsection{\texorpdfstring{Year}{Year}}
+{\footnotesize\ttfamily int My\+App\+::\+Books\+::\+Book\+::\+Year \{ get}
+
+
+
+Rok wydania książki. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+My\+App/\+Books/\mbox{\hyperlink{_book_8cs}{Book.\+cs}}\end{DoxyCompactItemize}

@@ -1,0 +1,87 @@
+\doxysection{My\+App\+::Data\+::Book\+Db\+Context Class Reference}
+\hypertarget{class_my_app_1_1_data_1_1_book_db_context}{}\label{class_my_app_1_1_data_1_1_book_db_context}\index{MyApp::Data::BookDbContext@{MyApp::Data::BookDbContext}}
+
+
+Reprezentuje kontekst bazy danych dla książek, dziedziczy po Db\+Context. Umożliwia dostęp do danych przechowywanych w bazie danych SQLite.  
+
+
+Inheritance diagram for My\+App\+::Data\+::Book\+Db\+Context\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_my_app_1_1_data_1_1_book_db_context}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Db\+Set$<$ \mbox{\hyperlink{class_my_app_1_1_data_1_1_book_data}{Book\+Data}} $>$ \mbox{\hyperlink{class_my_app_1_1_data_1_1_book_db_context_aacb6bccc21f4ab988d47f6684b72fa4e}{Books}} \{ get
+\begin{DoxyCompactList}\small\item\em Zbiór danych książek w bazie danych. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_my_app_1_1_data_1_1_book_db_context_a9344c9b66b91b67996f261318b427d6f}{set}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+override void \mbox{\hyperlink{class_my_app_1_1_data_1_1_book_db_context_ae63d073eae69a0fbd52fffda75a220ba}{On\+Configuring}} (Db\+Context\+Options\+Builder options\+Builder)
+\begin{DoxyCompactList}\small\item\em Konfiguruje opcje połączenia z bazą danych. Tworzy połączenie z bazą SQLite, której plik znajduje się w bieżącym katalogu. \end{DoxyCompactList}\item 
+override void \mbox{\hyperlink{class_my_app_1_1_data_1_1_book_db_context_ad78e84dfcee99b10b098edb89e2464bd}{On\+Model\+Creating}} (Model\+Builder model\+Builder)
+\begin{DoxyCompactList}\small\item\em Konfiguruje model danych. Ustawia klucz główny dla tabeli \doxylink{class_my_app_1_1_data_1_1_book_data}{Book\+Data}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Reprezentuje kontekst bazy danych dla książek, dziedziczy po Db\+Context. Umożliwia dostęp do danych przechowywanych w bazie danych SQLite. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_my_app_1_1_data_1_1_book_db_context_ae63d073eae69a0fbd52fffda75a220ba}\label{class_my_app_1_1_data_1_1_book_db_context_ae63d073eae69a0fbd52fffda75a220ba} 
+\index{MyApp::Data::BookDbContext@{MyApp::Data::BookDbContext}!OnConfiguring@{OnConfiguring}}
+\index{OnConfiguring@{OnConfiguring}!MyApp::Data::BookDbContext@{MyApp::Data::BookDbContext}}
+\doxysubsubsection{\texorpdfstring{OnConfiguring()}{OnConfiguring()}}
+{\footnotesize\ttfamily override void My\+App\+::\+Data\+::\+Book\+Db\+Context\+::\+On\+Configuring (\begin{DoxyParamCaption}\item[{Db\+Context\+Options\+Builder}]{options\+Builder }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Konfiguruje opcje połączenia z bazą danych. Tworzy połączenie z bazą SQLite, której plik znajduje się w bieżącym katalogu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em options\+Builder} & Builder do konfigurowania opcji połączenia.\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_my_app_1_1_data_1_1_book_db_context_ad78e84dfcee99b10b098edb89e2464bd}\label{class_my_app_1_1_data_1_1_book_db_context_ad78e84dfcee99b10b098edb89e2464bd} 
+\index{MyApp::Data::BookDbContext@{MyApp::Data::BookDbContext}!OnModelCreating@{OnModelCreating}}
+\index{OnModelCreating@{OnModelCreating}!MyApp::Data::BookDbContext@{MyApp::Data::BookDbContext}}
+\doxysubsubsection{\texorpdfstring{OnModelCreating()}{OnModelCreating()}}
+{\footnotesize\ttfamily override void My\+App\+::\+Data\+::\+Book\+Db\+Context\+::\+On\+Model\+Creating (\begin{DoxyParamCaption}\item[{Model\+Builder}]{model\+Builder }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Konfiguruje model danych. Ustawia klucz główny dla tabeli \doxylink{class_my_app_1_1_data_1_1_book_data}{Book\+Data}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model\+Builder} & Builder do konfigurowania modelu.\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_my_app_1_1_data_1_1_book_db_context_aacb6bccc21f4ab988d47f6684b72fa4e}\label{class_my_app_1_1_data_1_1_book_db_context_aacb6bccc21f4ab988d47f6684b72fa4e} 
+\index{MyApp::Data::BookDbContext@{MyApp::Data::BookDbContext}!Books@{Books}}
+\index{Books@{Books}!MyApp::Data::BookDbContext@{MyApp::Data::BookDbContext}}
+\doxysubsubsection{\texorpdfstring{Books}{Books}}
+{\footnotesize\ttfamily Db\+Set$<$\mbox{\hyperlink{class_my_app_1_1_data_1_1_book_data}{Book\+Data}}$>$ My\+App\+::\+Data\+::\+Book\+Db\+Context\+::\+Books \{ get}
+
+
+
+Zbiór danych książek w bazie danych. 
+
+\Hypertarget{class_my_app_1_1_data_1_1_book_db_context_a9344c9b66b91b67996f261318b427d6f}\label{class_my_app_1_1_data_1_1_book_db_context_a9344c9b66b91b67996f261318b427d6f} 
+\index{MyApp::Data::BookDbContext@{MyApp::Data::BookDbContext}!set@{set}}
+\index{set@{set}!MyApp::Data::BookDbContext@{MyApp::Data::BookDbContext}}
+\doxysubsubsection{\texorpdfstring{set}{set}}
+{\footnotesize\ttfamily My\+App\+::\+Data\+::\+Book\+Db\+Context\+::set}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+My\+App/\+Data/\mbox{\hyperlink{_book_db_context_8cs}{Book\+Db\+Context.\+cs}}\end{DoxyCompactItemize}

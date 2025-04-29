@@ -1,0 +1,76 @@
+\doxysection{My\+App\+::Data\+::Book\+Repository Class Reference}
+\hypertarget{class_my_app_1_1_data_1_1_book_repository}{}\label{class_my_app_1_1_data_1_1_book_repository}\index{MyApp::Data::BookRepository@{MyApp::Data::BookRepository}}
+
+
+Reprezentuje repozytorium dla danych książek. Zapewnia metody do interakcji z bazą danych książek.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+async Task$<$ List$<$ \mbox{\hyperlink{class_my_app_1_1_data_1_1_book_data}{Book\+Data}} $>$ $>$ \mbox{\hyperlink{class_my_app_1_1_data_1_1_book_repository_a603a52b6790430d694a40c1678540348}{Get\+All\+Book\+Data\+Async}} ()
+\begin{DoxyCompactList}\small\item\em Pobiera wszystkie dane książek z bazy danych asynchronicznie. \end{DoxyCompactList}\item 
+async Task$<$ \mbox{\hyperlink{class_my_app_1_1_data_1_1_book_data}{Book\+Data}} $>$ \mbox{\hyperlink{class_my_app_1_1_data_1_1_book_repository_ac9662f9f0c0fddf87b0d00d996da856d}{Get\+Book\+Data\+By\+Id\+Async}} (int book\+Id)
+\begin{DoxyCompactList}\small\item\em Pobiera dane książki z bazy danych na podstawie jej identyfikatora. \end{DoxyCompactList}\item 
+async Task \mbox{\hyperlink{class_my_app_1_1_data_1_1_book_repository_a5fcf63ad6449a7714b425ad0ab0d5547}{Save\+Book\+Data\+Async}} (\mbox{\hyperlink{class_my_app_1_1_data_1_1_book_data}{Book\+Data}} book\+Data)
+\begin{DoxyCompactList}\small\item\em Zapisuje dane książki w bazie danych. Jeśli książka już istnieje, jej dane są aktualizowane. Jeśli książka nie istnieje, zostaje dodana do bazy danych. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Reprezentuje repozytorium dla danych książek. Zapewnia metody do interakcji z bazą danych książek. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_my_app_1_1_data_1_1_book_repository_a603a52b6790430d694a40c1678540348}\label{class_my_app_1_1_data_1_1_book_repository_a603a52b6790430d694a40c1678540348} 
+\index{MyApp::Data::BookRepository@{MyApp::Data::BookRepository}!GetAllBookDataAsync@{GetAllBookDataAsync}}
+\index{GetAllBookDataAsync@{GetAllBookDataAsync}!MyApp::Data::BookRepository@{MyApp::Data::BookRepository}}
+\doxysubsubsection{\texorpdfstring{GetAllBookDataAsync()}{GetAllBookDataAsync()}}
+{\footnotesize\ttfamily async Task$<$ List$<$ \mbox{\hyperlink{class_my_app_1_1_data_1_1_book_data}{Book\+Data}} $>$ $>$ My\+App\+::\+Data\+::\+Book\+Repository\+::\+Get\+All\+Book\+Data\+Async (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Pobiera wszystkie dane książek z bazy danych asynchronicznie. 
+
+\begin{DoxyReturn}{Returns}
+Lista obiektów \doxylink{class_my_app_1_1_data_1_1_book_data}{Book\+Data} zawierająca dane wszystkich książek.
+\end{DoxyReturn}
+\Hypertarget{class_my_app_1_1_data_1_1_book_repository_ac9662f9f0c0fddf87b0d00d996da856d}\label{class_my_app_1_1_data_1_1_book_repository_ac9662f9f0c0fddf87b0d00d996da856d} 
+\index{MyApp::Data::BookRepository@{MyApp::Data::BookRepository}!GetBookDataByIdAsync@{GetBookDataByIdAsync}}
+\index{GetBookDataByIdAsync@{GetBookDataByIdAsync}!MyApp::Data::BookRepository@{MyApp::Data::BookRepository}}
+\doxysubsubsection{\texorpdfstring{GetBookDataByIdAsync()}{GetBookDataByIdAsync()}}
+{\footnotesize\ttfamily async Task$<$ \mbox{\hyperlink{class_my_app_1_1_data_1_1_book_data}{Book\+Data}} $>$ My\+App\+::\+Data\+::\+Book\+Repository\+::\+Get\+Book\+Data\+By\+Id\+Async (\begin{DoxyParamCaption}\item[{int}]{book\+Id }\end{DoxyParamCaption})}
+
+
+
+Pobiera dane książki z bazy danych na podstawie jej identyfikatora. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em book\+Id} & Identyfikator książki, dla której mają zostać pobrane dane.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Obiekt \doxylink{class_my_app_1_1_data_1_1_book_data}{Book\+Data} reprezentujący książkę, lub {\ttfamily null}, jeśli książka nie została znaleziona.
+\end{DoxyReturn}
+\Hypertarget{class_my_app_1_1_data_1_1_book_repository_a5fcf63ad6449a7714b425ad0ab0d5547}\label{class_my_app_1_1_data_1_1_book_repository_a5fcf63ad6449a7714b425ad0ab0d5547} 
+\index{MyApp::Data::BookRepository@{MyApp::Data::BookRepository}!SaveBookDataAsync@{SaveBookDataAsync}}
+\index{SaveBookDataAsync@{SaveBookDataAsync}!MyApp::Data::BookRepository@{MyApp::Data::BookRepository}}
+\doxysubsubsection{\texorpdfstring{SaveBookDataAsync()}{SaveBookDataAsync()}}
+{\footnotesize\ttfamily async Task My\+App\+::\+Data\+::\+Book\+Repository\+::\+Save\+Book\+Data\+Async (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_my_app_1_1_data_1_1_book_data}{Book\+Data}}}]{book\+Data }\end{DoxyParamCaption})}
+
+
+
+Zapisuje dane książki w bazie danych. Jeśli książka już istnieje, jej dane są aktualizowane. Jeśli książka nie istnieje, zostaje dodana do bazy danych. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em book\+Data} & Obiekt \doxylink{class_my_app_1_1_data_1_1_book_data}{Book\+Data} zawierający dane książki do zapisania.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Task reprezentujący operację asynchroniczną zapisania danych.
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+My\+App/\+Data/\mbox{\hyperlink{_book_repository_8cs}{Book\+Repository.\+cs}}\end{DoxyCompactItemize}

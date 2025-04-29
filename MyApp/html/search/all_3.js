@@ -1,0 +1,23 @@
+var searchData=
+[
+  ['book_0',['Book',['../class_my_app_1_1_books_1_1_book.html',1,'MyApp::Books']]],
+  ['book_2ecs_1',['Book.cs',['../_book_8cs.html',1,'']]],
+  ['bookdata_2',['BookData',['../class_my_app_1_1_data_1_1_book_data.html',1,'MyApp::Data']]],
+  ['bookdata_2ecs_3',['BookData.cs',['../_book_data_8cs.html',1,'']]],
+  ['bookdbcontext_4',['BookDbContext',['../class_my_app_1_1_data_1_1_book_db_context.html',1,'MyApp::Data']]],
+  ['bookdbcontext_2ecs_5',['BookDbContext.cs',['../_book_db_context_8cs.html',1,'']]],
+  ['bookdbcontextmodelsnapshot_6',['BookDbContextModelSnapshot',['../class_my_app_1_1_migrations_1_1_book_db_context_model_snapshot.html',1,'MyApp::Migrations']]],
+  ['bookdbcontextmodelsnapshot_2ecs_7',['BookDbContextModelSnapshot.cs',['../_book_db_context_model_snapshot_8cs.html',1,'']]],
+  ['bookdetailsview_8',['BookDetailsView',['../class_my_app_1_1_views_1_1_book_details_view.html',1,'MyApp::Views']]],
+  ['bookdetailsview_2eg_2ei_2ecs_9',['BookDetailsView.g.i.cs',['../_book_details_view_8g_8i_8cs.html',1,'']]],
+  ['bookdetailswindow_10',['BookDetailsWindow',['../class_my_app_1_1_book_details_window.html',1,'MyApp::BookDetailsWindow'],['../class_my_app_1_1_book_details_window.html#ad0d77cae41f1c59d8f2f694043cb583a',1,'MyApp::BookDetailsWindow::BookDetailsWindow()']]],
+  ['bookdetailswindow_2eg_2ecs_11',['BookDetailsWindow.g.cs',['../_book_details_window_8g_8cs.html',1,'']]],
+  ['bookdetailswindow_2eg_2ei_2ecs_12',['BookDetailsWindow.g.i.cs',['../_book_details_window_8g_8i_8cs.html',1,'']]],
+  ['bookdetailswindow_2examl_2ecs_13',['BookDetailsWindow.xaml.cs',['../_book_details_window_8xaml_8cs.html',1,'']]],
+  ['booklistapp_14',['BookListApp',['../namespace_book_list_app.html',1,'']]],
+  ['bookrepository_15',['BookRepository',['../class_my_app_1_1_data_1_1_book_repository.html',1,'MyApp::Data']]],
+  ['bookrepository_2ecs_16',['BookRepository.cs',['../_book_repository_8cs.html',1,'']]],
+  ['books_17',['Books',['../class_my_app_1_1_data_1_1_book_db_context.html#aacb6bccc21f4ab988d47f6684b72fa4e',1,'MyApp::Data::BookDbContext']]],
+  ['buildmodel_18',['BuildModel',['../class_my_app_1_1_migrations_1_1_book_db_context_model_snapshot.html#ae00b297ca9aab0be3f7a355247d08bdb',1,'MyApp::Migrations::BookDbContextModelSnapshot']]],
+  ['buildtargetmodel_19',['BuildTargetModel',['../class_my_app_1_1_migrations_1_1_add_rating_field.html#ac4863bbc7ef38fd4032f451e33e50c76',1,'MyApp::Migrations::AddRatingField']]]
+];

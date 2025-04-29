@@ -1,7 +1,8 @@
 # Ustawienia projektu:
 PROJECT_NAME           = "MyApp"
 PROJECT_BRIEF          = "Opis Twojego projektu"
-OUTPUT_DIRECTORY       = C:\Users\domin\Desktop\Studia\AIR6sem
+OUTPUT_DIRECTORY       = MyApp
+
 INPUT                  = ./MyApp
 FILE_PATTERNS          = *.cs
 EXCLUDE_PATTERNS       = 
