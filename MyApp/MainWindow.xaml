@@ -57,7 +57,7 @@
                             </Style>
                         </GridViewColumn.HeaderContainerStyle>
                     </GridViewColumn>
-                    
+
                     <!-- Ocena -->
                     <GridViewColumn Header="Ocena" DisplayMemberBinding="{Binding Rating}" Width="80">
                         <GridViewColumn.HeaderContainerStyle>
@@ -74,10 +74,19 @@
                         </GridViewColumn.Header>
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <CheckBox IsChecked="{Binding IsFavorite, Mode=TwoWay}" 
-                      HorizontalAlignment="Center"
-                      Checked="FavoriteCheckBox_Checked" 
-                      Unchecked="FavoriteCheckBox_Unchecked"/>
+                                <Image Width="24" Height="24" Cursor="Hand" MouseLeftButtonUp="FavoriteImage_MouseLeftButtonUp"
+                   HorizontalAlignment="Center">
+                                    <Image.Style>
+                                        <Style TargetType="Image">
+                                            <Setter Property="Source" Value="/Images/heart_empty.png"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsFavorite}" Value="True">
+                                                    <Setter Property="Source" Value="/Images/heart_filled.png"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Image.Style>
+                                </Image>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -122,6 +131,8 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
+
+
                 </GridView>
             </ListView.View>
         </ListView>

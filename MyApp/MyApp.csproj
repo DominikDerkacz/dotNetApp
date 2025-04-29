@@ -10,7 +10,15 @@
 
   <ItemGroup>
     <None Remove="ikona.ico" />
+    <None Remove="Images\heart_empty.png" />
+    <None Remove="Images\heart_filled.png" />
     <None Remove="Resources\ikona.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\heart_empty.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
@@ -29,6 +37,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\heart_filled.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\ikona.ico">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>

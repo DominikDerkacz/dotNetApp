@@ -9,6 +9,7 @@ using MyApp.Services;
 using MyApp.Data;
 using System.ComponentModel;
 using System.Windows.Data;
+using System.Windows.Input;
 
 namespace BookListApp
 {
@@ -88,23 +89,7 @@ namespace BookListApp
         }
 
         /// <summary>
-        /// Obsługuje zmianę stanu checkboxa "Ulubione" (zaznaczone/odznaczone).
-        /// </summary>
-        private async void FavoriteCheckBox_Checked(object sender, RoutedEventArgs e)
-        {
-            await HandleCheckBoxChange(sender, true, nameof(Book.IsFavorite));
-        }
-
-        /// <summary>
-        /// Obsługuje zmianę stanu checkboxa "Ulubione" (odznaczone).
-        /// </summary>
-        private async void FavoriteCheckBox_Unchecked(object sender, RoutedEventArgs e)
-        {
-            await HandleCheckBoxChange(sender, false, nameof(Book.IsFavorite));
-        }
-
-        /// <summary>
-        /// Obsługuje zmianę stanu checkboxa "Do przeczytania" (zaznaczone/odznaczone).
+        /// Obsługuje zmianę stanu checkboxa "Do przeczytania" (zaznaczone).
         /// </summary>
         private async void ToReadCheckBox_Checked(object sender, RoutedEventArgs e)
         {
@@ -120,13 +105,12 @@ namespace BookListApp
         }
 
         /// <summary>
-        /// Obsługuje zmianę stanu checkboxa "Przeczytane" (zaznaczone/odznaczone).
+        /// Obsługuje zmianę stanu checkboxa "Przeczytane" (zaznaczone).
         /// </summary>
         private async void ReadCheckBox_Checked(object sender, RoutedEventArgs e)
         {
             await HandleCheckBoxChange(sender, true, nameof(Book.IsRead));
         }
-
         /// <summary>
         /// Obsługuje zmianę stanu checkboxa "Przeczytane" (odznaczone).
         /// </summary>
@@ -134,15 +118,47 @@ namespace BookListApp
         {
             await HandleCheckBoxChange(sender, false, nameof(Book.IsRead));
         }
+        /// <summary>
+        /// Obsługuje kliknięcie na obrazek w celu zmiany stanu "ulubiona" książki.
+        /// </summary>
+        /// <param name="sender">Obrazek, na którym kliknięto.</param>
+        /// <param name="e">Zdarzenie kliknięcia myszy.</param>
+        /// <remarks>
+        /// Funkcja ta zmienia status książki na "ulubiona" lub "nieulubiona" po kliknięciu na obrazek.
+        /// </remarks>
+        private async void FavoriteImage_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (sender is Image image && image.DataContext is Book selectedBook)
+            {
+                bool newValue = !selectedBook.IsFavorite;  // Inwersja stanu "ulubiona"
+                await HandleCheckBoxChange(image, newValue, nameof(Book.IsFavorite));
+            }
+        }
+
 
         /// <summary>
         /// Ogólna funkcja obsługująca zmianę stanu dowolnego checkboxa związane z książką.
         /// </summary>
+        /// <param name="sender">Element, który wywołał zdarzenie (w tym przypadku obrazek).</param>
+        /// <param name="isChecked">Nowa wartość zaznaczenia (prawda/fałsz) zmienianego stanu.</param>
+        /// <param name="propertyName">Nazwa właściwości książki, która ma zostać zaktualizowana.</param>
+        /// <remarks>
+        /// Funkcja ta obsługuje zmianę stanu książki, taką jak jej oznaczenie jako "ulubiona", "do przeczytania" lub "przeczytana",
+        /// na podstawie interakcji użytkownika z odpowiednim obrazkiem.
+        /// </remarks>
         private async Task HandleCheckBoxChange(object sender, bool isChecked, string propertyName)
         {
-            if (sender is CheckBox checkBox && checkBox.DataContext is Book book)
+            Book book = null;
+
+            // Sprawdzanie, czy sender jest elementem posiadającym DataContext książki
+            if (sender is FrameworkElement element && element.DataContext is Book b)
             {
-                // Aktualizuje odpowiednią właściwość książki w zależności od zmiany checkboxa
+                book = b;
+            }
+
+            // Jeżeli książka istnieje, zmienia odpowiednią właściwość
+            if (book != null)
+            {
                 switch (propertyName)
                 {
                     case nameof(Book.IsFavorite):
@@ -156,10 +172,11 @@ namespace BookListApp
                         break;
                 }
 
-                // Zapisuje zaktualizowany status książki do lokalnej bazy danych
+                // Zapisuje zaktualizowany status książki do bazy danych
                 await SaveBookStatusAsync(book);
             }
         }
+
 
         /// <summary>
         /// Zapisuje status książki (czy jest przeczytana, do przeczytania, ulubiona) w lokalnej bazie danych.
@@ -285,8 +302,6 @@ namespace BookListApp
                 }
             }
         }
-
-
 
 
     }
