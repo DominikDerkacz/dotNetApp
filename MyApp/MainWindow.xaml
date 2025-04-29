@@ -58,39 +58,6 @@
                         </GridViewColumn.HeaderContainerStyle>
                     </GridViewColumn>
 
-                    <!-- Ocena -->
-                    <GridViewColumn Header="Ocena" DisplayMemberBinding="{Binding Rating}" Width="80">
-                        <GridViewColumn.HeaderContainerStyle>
-                            <Style TargetType="GridViewColumnHeader">
-                                <EventSetter Event="Click" Handler="GridViewColumnHeader_Click"/>
-                            </Style>
-                        </GridViewColumn.HeaderContainerStyle>
-                    </GridViewColumn>
-
-                    <!-- Ulubiona -->
-                    <GridViewColumn Width="80">
-                        <GridViewColumn.Header>
-                            <GridViewColumnHeader Content="Ulubiona" Tag="IsFavorite" Click="GridViewColumnHeader_Click"/>
-                        </GridViewColumn.Header>
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <Image Width="24" Height="24" Cursor="Hand" MouseLeftButtonUp="FavoriteImage_MouseLeftButtonUp"
-                   HorizontalAlignment="Center">
-                                    <Image.Style>
-                                        <Style TargetType="Image">
-                                            <Setter Property="Source" Value="/Images/heart_empty.png"/>
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding IsFavorite}" Value="True">
-                                                    <Setter Property="Source" Value="/Images/heart_filled.png"/>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </Image.Style>
-                                </Image>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-
                     <!-- Do przeczytania -->
                     <GridViewColumn Width="80">
                         <GridViewColumn.Header>
@@ -139,6 +106,15 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
+                    <!-- Ocena -->
+                    <GridViewColumn Header="Ocena" DisplayMemberBinding="{Binding Rating}" Width="80">
+                        <GridViewColumn.HeaderContainerStyle>
+                            <Style TargetType="GridViewColumnHeader">
+                                <EventSetter Event="Click" Handler="GridViewColumnHeader_Click"/>
+                            </Style>
+                        </GridViewColumn.HeaderContainerStyle>
+                    </GridViewColumn>
+
 
                     <!-- Szczegóły -->
                     <GridViewColumn Header="Szczegóły">
@@ -146,6 +122,30 @@
                             <DataTemplate>
                                 <!-- Przycisk do wyświetlenia szczegółów książki -->
                                 <Button Content="Szczegóły" Click="DetailsButton_Click" Tag="{Binding}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <!-- Ulubiona -->
+                    <GridViewColumn Width="80">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Content="Ulubiona" Tag="IsFavorite" Click="GridViewColumnHeader_Click"/>
+                        </GridViewColumn.Header>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Width="24" Height="24" Cursor="Hand" MouseLeftButtonUp="FavoriteImage_MouseLeftButtonUp"
+                   HorizontalAlignment="Center">
+                                    <Image.Style>
+                                        <Style TargetType="Image">
+                                            <Setter Property="Source" Value="/Images/heart_empty.png"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsFavorite}" Value="True">
+                                                    <Setter Property="Source" Value="/Images/heart_filled.png"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Image.Style>
+                                </Image>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
