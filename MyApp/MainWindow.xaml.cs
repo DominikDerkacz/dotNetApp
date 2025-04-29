@@ -89,36 +89,6 @@ namespace BookListApp
         }
 
         /// <summary>
-        /// Obsługuje zmianę stanu checkboxa "Do przeczytania" (zaznaczone).
-        /// </summary>
-        private async void ToReadCheckBox_Checked(object sender, RoutedEventArgs e)
-        {
-            await HandleCheckBoxChange(sender, true, nameof(Book.IsToRead));
-        }
-
-        /// <summary>
-        /// Obsługuje zmianę stanu checkboxa "Do przeczytania" (odznaczone).
-        /// </summary>
-        private async void ToReadCheckBox_Unchecked(object sender, RoutedEventArgs e)
-        {
-            await HandleCheckBoxChange(sender, false, nameof(Book.IsToRead));
-        }
-
-        /// <summary>
-        /// Obsługuje zmianę stanu checkboxa "Przeczytane" (zaznaczone).
-        /// </summary>
-        private async void ReadCheckBox_Checked(object sender, RoutedEventArgs e)
-        {
-            await HandleCheckBoxChange(sender, true, nameof(Book.IsRead));
-        }
-        /// <summary>
-        /// Obsługuje zmianę stanu checkboxa "Przeczytane" (odznaczone).
-        /// </summary>
-        private async void ReadCheckBox_Unchecked(object sender, RoutedEventArgs e)
-        {
-            await HandleCheckBoxChange(sender, false, nameof(Book.IsRead));
-        }
-        /// <summary>
         /// Obsługuje kliknięcie na obrazek w celu zmiany stanu "ulubiona" książki.
         /// </summary>
         /// <param name="sender">Obrazek, na którym kliknięto.</param>
@@ -132,6 +102,38 @@ namespace BookListApp
             {
                 bool newValue = !selectedBook.IsFavorite;  // Inwersja stanu "ulubiona"
                 await HandleCheckBoxChange(image, newValue, nameof(Book.IsFavorite));
+            }
+        }
+        /// <summary>
+        /// Obsługuje kliknięcie na obrazek w celu zmiany stanu "do przeczytania" książki.
+        /// </summary>
+        /// <param name="sender">Obrazek, na którym kliknięto.</param>
+        /// <param name="e">Zdarzenie kliknięcia myszy.</param>
+        /// <remarks>
+        /// Funkcja ta zmienia status książki na "do przeczytania" lub "nie" po kliknięciu na obrazek.
+        /// </remarks>
+        private async void ToReadImage_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (sender is Image image && image.DataContext is Book selectedBook)
+            {
+                bool newValue = !selectedBook.IsToRead;  // Inwersja stanu "ulubiona"
+                await HandleCheckBoxChange(image, newValue, nameof(Book.IsToRead));
+            }
+        }
+        /// <summary>
+        /// Obsługuje kliknięcie na obrazek w celu zmiany stanu "do przeczytania" książki.
+        /// </summary>
+        /// <param name="sender">Obrazek, na którym kliknięto.</param>
+        /// <param name="e">Zdarzenie kliknięcia myszy.</param>
+        /// <remarks>
+        /// Funkcja ta zmienia status książki na "przeczytana" lub "nie" po kliknięciu na obrazek.
+        /// </remarks>
+        private async void ReadImage_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (sender is Image image && image.DataContext is Book selectedBook)
+            {
+                bool newValue = !selectedBook.IsRead;  // Inwersja stanu "ulubiona"
+                await HandleCheckBoxChange(image, newValue, nameof(Book.IsRead));
             }
         }
 
@@ -300,23 +302,6 @@ namespace BookListApp
                     _lastHeaderClicked = headerClicked;
                     _lastDirection = direction;
                 }
-            }
-        }
-
-        private async void ToReadImage_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            if (sender is Image image && image.DataContext is Book selectedBook)
-            {
-                bool newValue = !selectedBook.IsToRead;  // Inwersja stanu "ulubiona"
-                await HandleCheckBoxChange(image, newValue, nameof(Book.IsToRead));
-            }
-        }
-        private async void ReadImage_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            if (sender is Image image && image.DataContext is Book selectedBook)
-            {
-                bool newValue = !selectedBook.IsRead;  // Inwersja stanu "ulubiona"
-                await HandleCheckBoxChange(image, newValue, nameof(Book.IsRead));
             }
         }
 
