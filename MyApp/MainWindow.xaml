@@ -92,16 +92,25 @@
                     </GridViewColumn>
 
                     <!-- Do przeczytania -->
-                    <GridViewColumn Width="100">
+                    <GridViewColumn Width="80">
                         <GridViewColumn.Header>
                             <GridViewColumnHeader Content="Do przeczytania" Tag="IsToRead" Click="GridViewColumnHeader_Click"/>
                         </GridViewColumn.Header>
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <CheckBox IsChecked="{Binding IsToRead, Mode=TwoWay}" 
-                      HorizontalAlignment="Center"
-                      Checked="ToReadCheckBox_Checked" 
-                      Unchecked="ToReadCheckBox_Unchecked"/>
+                                <Image Width="24" Height="24" Cursor="Hand" MouseLeftButtonUp="ToReadImage_MouseLeftButtonUp"
+                   HorizontalAlignment="Center">
+                                    <Image.Style>
+                                        <Style TargetType="Image">
+                                            <Setter Property="Source" Value="/Images/book.png"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsToRead, Mode=TwoWay}" Value="True">
+                                                    <Setter Property="Source" Value="/Images/checked_book.png"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Image.Style>
+                                </Image>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -113,10 +122,19 @@
                         </GridViewColumn.Header>
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <CheckBox IsChecked="{Binding IsRead, Mode=TwoWay}" 
-                      HorizontalAlignment="Center"
-                      Checked="ReadCheckBox_Checked" 
-                      Unchecked="ReadCheckBox_Unchecked"/>
+                                <Image Width="24" Height="24" Cursor="Hand" MouseLeftButtonUp="ReadImage_MouseLeftButtonUp"
+                   HorizontalAlignment="Center">
+                                    <Image.Style>
+                                        <Style TargetType="Image">
+                                            <Setter Property="Source" Value="/Images/book.png"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsRead, Mode=TwoWay}" Value="True">
+                                                    <Setter Property="Source" Value="/Images/checked_book.png"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Image.Style>
+                                </Image>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

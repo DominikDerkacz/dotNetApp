@@ -10,12 +10,20 @@
 
   <ItemGroup>
     <None Remove="ikona.ico" />
+    <None Remove="Images\book.png" />
+    <None Remove="Images\checked_book.png" />
     <None Remove="Images\heart_empty.png" />
     <None Remove="Images\heart_filled.png" />
     <None Remove="Resources\ikona.ico" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\book.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\checked_book.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\heart_empty.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>

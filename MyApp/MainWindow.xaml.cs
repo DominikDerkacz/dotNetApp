@@ -303,6 +303,23 @@ namespace BookListApp
             }
         }
 
+        private async void ToReadImage_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (sender is Image image && image.DataContext is Book selectedBook)
+            {
+                bool newValue = !selectedBook.IsToRead;  // Inwersja stanu "ulubiona"
+                await HandleCheckBoxChange(image, newValue, nameof(Book.IsToRead));
+            }
+        }
+        private async void ReadImage_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (sender is Image image && image.DataContext is Book selectedBook)
+            {
+                bool newValue = !selectedBook.IsRead;  // Inwersja stanu "ulubiona"
+                await HandleCheckBoxChange(image, newValue, nameof(Book.IsRead));
+            }
+        }
 
+        
     }
 }
