@@ -3,25 +3,48 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using MyApp.Books;
-using MyApp.Villains;
 using Newtonsoft.Json;
 
-public class ApiService
+namespace MyApp.Services
 {
-    private const string BaseUrl = "https://stephen-king-api.onrender.com/api/books";
-
-    public async Task<List<Book>> GetBooksAsync()
+    /// <summary>
+    /// Usługa odpowiedzialna za pobieranie danych książek z zewnętrznego API.
+    /// </summary>
+    public class ApiService
     {
-        using (var client = new HttpClient())
+        /// <summary>
+        /// Bazowy URL do zewnętrznego API książek.
+        /// </summary>
+        private const string BaseUrl = "https://stephen-king-api.onrender.com/api/books";
+
+        /// <summary>
+        /// Pobiera listę książek z zewnętrznego API asynchronicznie.
+        /// </summary>
+        /// <returns>Lista obiektów <see cref="Book"/> zawierająca dane książek.</returns>
+        public async Task<List<Book>> GetBooksAsync()
         {
-            var response = await client.GetStringAsync(BaseUrl);
-            var booksResponse = JsonConvert.DeserializeObject<BooksResponse>(response);
-            return booksResponse.Data;
+            using (var client = new HttpClient())
+            {
+                // Wysyłanie zapytania do API
+                var response = await client.GetStringAsync(BaseUrl);
+
+                // Deserializacja odpowiedzi do obiektu BooksResponse
+                var booksResponse = JsonConvert.DeserializeObject<BooksResponse>(response);
+
+                // Zwracanie danych książek
+                return booksResponse.Data;
+            }
         }
     }
-}
 
-public class BooksResponse
-{
-    public List<Book> Data { get; set; }
+    /// <summary>
+    /// Reprezentuje odpowiedź API zawierającą dane książek.
+    /// </summary>
+    public class BooksResponse
+    {
+        /// <summary>
+        /// Lista książek pobranych z API.
+        /// </summary>
+        public List<Book> Data { get; set; }
+    }
 }

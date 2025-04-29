@@ -1,0 +1,12 @@
+# Ustawienia projektu:
+PROJECT_NAME           = "MyApp"
+PROJECT_BRIEF          = "Opis Twojego projektu"
+OUTPUT_DIRECTORY       = C:\Users\domin\Desktop\Studia\AIR6sem
+INPUT                  = ./MyApp
+FILE_PATTERNS          = *.cs
+EXCLUDE_PATTERNS       = 
+RECURSIVE              = YES
+GENERATE_LATEX         = YES
+EXTRACT_ALL            = YES
+OPTIMIZE_OUTPUT_JAVA   = YES
+EXTENSION_MAPPING      =cs=C++
