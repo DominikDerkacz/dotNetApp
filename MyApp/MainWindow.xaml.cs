@@ -206,6 +206,11 @@ namespace BookListApp
             }
         }
 
+        /// <summary>
+        /// Obsługuje zmianę tekstu w polu wyszukiwania, filtrując książki po tytule.
+        /// </summary>
+        /// <param name="sender">Obiekt, który wywołał zdarzenie, czyli TextBox.</param>
+        /// <param name="e">Informacje o zdarzeniu zmiany tekstu.</param>
         private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             var searchText = SearchTextBox.Text.ToLower();
@@ -216,6 +221,12 @@ namespace BookListApp
             // Przypisujemy przefiltrowaną listę do ListView
             BooksListView.ItemsSource = filteredBooks;
         }
+
+        /// <summary>
+        /// Sortuje książki według wskazanej kolumny i kierunku.
+        /// </summary>
+        /// <param name="sortBy">Nazwa właściwości, po której książki mają być posortowane.</param>
+        /// <param name="direction">Kierunek sortowania (rosnący/malejący).</param>
         private void Sort(string sortBy, ListSortDirection direction)
         {
             ICollectionView dataView = CollectionViewSource.GetDefaultView(BooksListView.ItemsSource);
@@ -224,6 +235,12 @@ namespace BookListApp
             dataView.SortDescriptions.Add(new SortDescription(sortBy, direction));
             dataView.Refresh();
         }
+
+        /// <summary>
+        /// Obsługuje kliknięcie nagłówka kolumny w celu posortowania książek według wybranej kolumny.
+        /// </summary>
+        /// <param name="sender">Obiekt, który wywołał zdarzenie, czyli nagłówek kolumny.</param>
+        /// <param name="e">Informacje o zdarzeniu kliknięcia.</param>
         private void GridViewColumnHeader_Click(object sender, RoutedEventArgs e)
         {
             if (e.OriginalSource is GridViewColumnHeader headerClicked)
